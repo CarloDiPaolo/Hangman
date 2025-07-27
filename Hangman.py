@@ -75,3 +75,9 @@ def getGuess(alreadyGuessed):
             print("please input a LETTER")
         else:
             return guess
+
+def playAgain():
+    #returns true if the player chooses to play again
+    print("Would you like to play again? ('yes' or 'no')")
+    return input().lower().startswith('y')
+
