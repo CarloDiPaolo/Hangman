@@ -81,3 +81,46 @@ def playAgain():
     print("Would you like to play again? ('yes' or 'no')")
     return input().lower().startswith('y')
 
+
+print('H A N G M A N')
+missedLetters = ''
+correctLetters = ''
+secretWord = getRandomWord(words)
+gameIsDone = False
+
+while True:
+    displayBoard(missedLetters, correctLetters, secretWord)
+
+    #have player guess a word
+    guess = getGuess(missedLetters + correctLetters)
+
+    if guess in secretWord:
+        correctLetters = correctLetters + guess
+
+        #check if player has won
+        foundAllLetters = True
+        for i in range(len(secretWord)):
+            if secretWord[i] not in correctLetters:
+                foundAllLetters = False
+                break
+        if foundAllLetters:
+            print ('Amazing! the secret word is, in fact "' + secretWord + '"!')
+            gameIsDone = True
+    else:
+        missedLetters = missedLetters + guess
+
+        #check if player has lost
+        if len(missedLetters) = len(HANGMAN-PICS) -1:
+            displayBoard(missedLetters, correctLetters, secretWord)
+            print('Blast! You have run out of guesses!\nAfter ' + str(len(missedGuesses)) + 'missed guesses and ' + str(len(correctGuesses)) + 'correct guesses, the word was:"' + secretWord + '"')
+            gameIsDone = True
+
+        #ask player if the wish to play again
+        if gameIsDone:
+            if playAgain():
+                missedLetters = ''
+                correctLetters = ''
+                gameIsDone = False
+                secretWord = getRandomWord(words)
+            else:
+                break
