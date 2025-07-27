@@ -60,3 +60,18 @@ def displayBoard(missedLetters, correctLetters, secretWord):
     for letter in blanks: 
         print(letter, end=' ')
     print()
+
+def getGuess(alreadyGuessed):
+    #returns the letter input by the player and makes sure the letter is lowercase
+    while True:
+        print('Guess a letter:')
+        guess=input()
+        guess=guess.lower()
+        if len(guess)!=1:
+            print("please input a single letter")
+        elif gues in alreadyGuessed:
+            print("this letter was already guessed, pick another")
+        elif guess not in 'abcdefghijklmnopqrstuvwxyz':
+            print("please input a LETTER")
+        else:
+            return guess
