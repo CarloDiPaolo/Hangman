@@ -39,7 +39,7 @@ words = 'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote cr
 
 def getRandomWord(wordList):
     #return a random string from the word list
-    wordIndex=random.randing(0, len(wordList)-1)
+    wordIndex=random.randint(0, len(wordList)-1)
     return wordList[wordIndex]
 
 def displayBoard(missedLetters, correctLetters, secretWord):
@@ -69,7 +69,7 @@ def getGuess(alreadyGuessed):
         guess=guess.lower()
         if len(guess)!=1:
             print("please input a single letter")
-        elif gues in alreadyGuessed:
+        elif guess in alreadyGuessed:
             print("this letter was already guessed, pick another")
         elif guess not in 'abcdefghijklmnopqrstuvwxyz':
             print("please input a LETTER")
@@ -110,7 +110,7 @@ while True:
         missedLetters = missedLetters + guess
 
         #check if player has lost
-        if len(missedLetters) = len(HANGMAN-PICS) -1:
+        if len(missedLetters) == len(HANGMAN_PICS) -1:
             displayBoard(missedLetters, correctLetters, secretWord)
             print('Blast! You have run out of guesses!\nAfter ' + str(len(missedLetters)) + 'missed guesses and ' + str(len(correctLetters)) + 'correct guesses, the word was:"' + secretWord + '"')
             gameIsDone = True
