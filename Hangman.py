@@ -102,6 +102,20 @@ def playAgain():
 
 print('H A N G M A N')
 
+difficulty = 'X'
+while difficulty not in "EMH":
+    print('Please choose a difficulty level:\n E - Easy\n M - Medium\n H - Hard')
+
+    difficulty = input().upper()
+    if difficulty == 'M':
+        del HANGMAN_PICS[8]
+        del HANGMAN_PICS[7]
+    elif difficulty == 'H':
+        del HANGMAN_PICS[8]
+        del HANGMAN_PICS[7]
+        del HANGMAN_PICS[5]
+        del HANGMAN_PICS[3]
+
 missedLetters = ''
 correctLetters = ''
 secretWord = getRandomWord(words)
