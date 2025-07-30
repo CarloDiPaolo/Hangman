@@ -50,10 +50,15 @@ words = {'Colors' : 'red orange yellow green blue indigo violet white black brow
          'Fruits' : 'apple orange lemon lime pear watermelon grape grapefruit cherry banana cantaloupe mango strawberry tomato'.split(),
          'Animals' : 'bat bear beaver cat cougar crab deer dog donkey duck eagle fish frog goat leech lion lizard monkey moose mouse otter owl panda python rabbit rat shark sheep skunk squid tiger turkey turtle weasel whale wolf wombat zebra'.split()}
 
-def getRandomWord(wordList):
-    #return a random string from the word list
-    wordIndex=random.randint(0, len(wordList)-1)
-    return wordList[wordIndex]
+def getRandomWord(wordDict):
+    #returns a random word from the dictionary and its key
+    #select random key
+    wordKey = random.choice(list(wordDict.keys()))
+
+    #select random word from the key's list
+    wordIndex = random.randint(0, len(wordDict[wordKey]) -1)
+
+    return [wordDict[wordKey][wordIndex], wordKey]
 
 def displayBoard(missedLetters, correctLetters, secretWord):
     print(HANGMAN_PICS[len(missedLetters)])
@@ -96,6 +101,7 @@ def playAgain():
 
 
 print('H A N G M A N')
+
 missedLetters = ''
 correctLetters = ''
 secretWord = getRandomWord(words)
