@@ -105,7 +105,6 @@ print('H A N G M A N')
 difficulty = 'X'
 while difficulty not in "EMH":
     print('Please choose a difficulty level:\n E - Easy\n M - Medium\n H - Hard')
-
     difficulty = input().upper()
     if difficulty == 'M':
         del HANGMAN_PICS[8]
@@ -118,7 +117,7 @@ while difficulty not in "EMH":
 
 missedLetters = ''
 correctLetters = ''
-secretWord = getRandomWord(words)
+secretWord, secretSet = getRandomWord(words)
 gameIsDone = False
 
 while True:
@@ -154,6 +153,6 @@ while True:
                 missedLetters = ''
                 correctLetters = ''
                 gameIsDone = False
-                secretWord = getRandomWord(words)
+                secretWord, secretSet = getRandomWord(words)
             else:
                 break
