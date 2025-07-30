@@ -121,6 +121,7 @@ secretWord, secretSet = getRandomWord(words)
 gameIsDone = False
 
 while True:
+    print('The secret word is in the set: ' + secretSet)
     displayBoard(missedLetters, correctLetters, secretWord)
 
     #have player guess a word
